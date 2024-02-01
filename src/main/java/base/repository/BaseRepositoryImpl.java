@@ -73,6 +73,6 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
 
     public abstract void setFields(PreparedStatement ps, T entity, boolean isCountOnly) throws SQLException;
 
-    public abstract T mapResultSetToEntity(ResultSet resultSet);
+    public abstract T mapResultSetToEntity(ResultSet resultSet) throws SQLException;
 
 }
