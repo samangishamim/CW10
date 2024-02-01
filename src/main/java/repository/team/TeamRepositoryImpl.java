@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class TeamRepositoryImpl extends BaseRepositoryImpl<Integer, Team>
         implements TeamRepository {
 
-    protected TeamRepositoryImpl(Connection connection) {
+    public TeamRepositoryImpl(Connection connection) {
         super(connection);
     }
 
