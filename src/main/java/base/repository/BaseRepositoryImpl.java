@@ -37,7 +37,6 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
                 return mapResultSetToEntity(resultSet);
-
             }
         }
         return null;
