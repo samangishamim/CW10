@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CityRepositoryImpl extends BaseRepositoryImpl <Integer, City> implements CityRepository {
-    protected CityRepositoryImpl(Connection connection) {
+    public CityRepositoryImpl(Connection connection) {
         super(connection);
     }
 

@@ -30,7 +30,7 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
     @Override
     public T findById(ID id) throws SQLException {
         // todo : SELECT * FROM tableName where id=?;
-        String sql = "SELECT * FROM" + getTableName() + " WHERE id = ?";
+        String sql = "SELECT * FROM " + getTableName() + " WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, (Integer) id);
 
@@ -56,8 +56,9 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
     @Override
     public void delete(ID id) throws SQLException {
         //todo : DELETE FROM TableName WHERE id=?
-        String sql = "DELETE FROM " + getTableName() + "WHERE id=" + id;
+        String sql = " DELETE FROM " + getTableName() + " WHERE id = ?" ;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, (Integer) id);
             ps.executeUpdate();
         }
 
