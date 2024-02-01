@@ -16,4 +16,9 @@ public class Team extends BaseEntity<Integer> {
     String teamName ;
     int cityId ;
 
+    public Team (int id , String teamName , int cityId){
+        super(id);
+        this.teamName=teamName;
+        this.cityId=cityId;
+    }
 }
