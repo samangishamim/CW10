@@ -66,9 +66,9 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
 
     public abstract String getTableName();
 
-    public abstract String getQuestionMarks();
-
     public abstract String getFieldName();
+
+    public abstract String getQuestionMarks();
 
     public abstract String getUpdateFields();
 
