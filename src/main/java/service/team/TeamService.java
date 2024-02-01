@@ -1,4 +1,7 @@
 package service.team;
 
-public interface TeamService {
+import base.service.BaseService;
+import model.Team;
+
+public interface TeamService extends BaseService<Integer , Team> {
 }
