@@ -13,7 +13,7 @@ public class DBConfig {
         if (connection==null){
             String url="jdbc:postgresql://localhost:5432/cw10";
             String username="postgres";
-            String password="lplnvqh81";
+            String password="shamim1379";
             try {
                 connection= DriverManager.getConnection(url,username,password);
             } catch (SQLException e) {
