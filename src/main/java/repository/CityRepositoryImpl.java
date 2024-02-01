@@ -6,6 +6,7 @@ import model.City;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CityRepositoryImpl extends BaseRepositoryImpl <Integer, City> implements CityRepository {
     protected CityRepositoryImpl(Connection connection) {
@@ -14,31 +15,33 @@ public class CityRepositoryImpl extends BaseRepositoryImpl <Integer, City> imple
 
     @Override
     public String getTableName() {
-        return null;
-    }
-
-    @Override
-    public String getQuestionMarks() {
-        return null;
+        return "city";
     }
 
     @Override
     public String getFieldName() {
-        return null;
+        return "(city_name)";
     }
+
+    @Override
+    public String getQuestionMarks() {
+        return "(?)";
+    }
+
 
     @Override
     public String getUpdateFields() {
-        return null;
+        return "city_name=?";
     }
 
     @Override
-    public String setFields(PreparedStatement ps, City entity, boolean isCountOnly) {
-        return null;
+    public void setFields(PreparedStatement ps, City entity, boolean isCountOnly) throws SQLException {
+        ps.setString(1,entity.getCityName());
     }
 
     @Override
-    public City mapResultSetToEntity(ResultSet resultSet) {
-        return null;
+    public City mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        String cityName = resultSet.getString(1);
+        return new City(cityName);
     }
 }
