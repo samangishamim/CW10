@@ -4,4 +4,6 @@ import base.repository.BaseRepository;
 import model.Player;
 
 public interface PlayerRepository extends BaseRepository<Integer , Player> {
+
+    public Player[] listOfPlayer();
 }
