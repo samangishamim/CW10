@@ -18,3 +18,10 @@ CREATE TABLE IF NOT EXISTS player
     team_id int references team(id)
 );
 
+create  table if not exists stadium
+(
+  id SERIAL primary key ,
+  stadium_name varchar(50),
+  city_id int references  city(id)
+);
+
