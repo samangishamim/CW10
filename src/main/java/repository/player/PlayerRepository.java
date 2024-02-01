@@ -1,4 +1,7 @@
 package repository.player;
 
-public interface PlayerRepository {
+import base.repository.BaseRepository;
+import model.Player;
+
+public interface PlayerRepository extends BaseRepository<Integer , Player> {
 }
