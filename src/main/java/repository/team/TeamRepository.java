@@ -1,4 +1,7 @@
 package repository.team;
 
-public interface TeamRepository {
+import base.repository.BaseRepository;
+import model.Team;
+
+public interface TeamRepository extends BaseRepository <Integer , Team> {
 }
