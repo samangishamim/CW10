@@ -1,4 +1,4 @@
-package repository;
+package repository.city;
 
 import base.repository.BaseRepositoryImpl;
 import model.City;
