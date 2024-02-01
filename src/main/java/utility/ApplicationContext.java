@@ -3,10 +3,14 @@ package utility;
 import connection.DBConfig;
 import repository.city.CityRepository;
 import repository.city.CityRepositoryImpl;
+import repository.player.PlayerRepository;
+import repository.player.PlayerRepositoryImpl;
 import repository.team.TeamRepository;
 import repository.team.TeamRepositoryImpl;
 import service.city.CityService;
 import service.city.CityServiceImpl;
+import service.player.PlayerService;
+import service.player.PlayerServiceImpl;
 import service.team.TeamService;
 import service.team.TeamServiceImpl;
 
@@ -18,6 +22,8 @@ public class ApplicationContext {
     private  static CityService CITY_SERVICE;
     private static TeamRepository TEAM_REPOSITORY;
     private static TeamService TEAM_SERVICE;
+    private static PlayerRepository PLAYER_REPOSITORY ;
+    private static PlayerService PLAYER_SERVICE ;
 
 
     public static void initialize(){
@@ -32,6 +38,10 @@ public class ApplicationContext {
             TEAM_REPOSITORY = new TeamRepositoryImpl(CONNECTION);
             TEAM_SERVICE = new TeamServiceImpl(TEAM_REPOSITORY);
         }
+        if (PLAYER_REPOSITORY == null){
+            PLAYER_REPOSITORY = new PlayerRepositoryImpl(CONNECTION);
+            PLAYER_SERVICE = new PlayerServiceImpl(PLAYER_REPOSITORY);
+        }
     }
 
     public  static  CityService getCityService(){
@@ -39,5 +49,8 @@ public class ApplicationContext {
     }
     public static TeamService getTeamService(){
         return TEAM_SERVICE;
+    }
+    public static PlayerService getPlayerService(){
+        return PLAYER_SERVICE;
     }
 }
