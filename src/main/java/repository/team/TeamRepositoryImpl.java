@@ -9,7 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TeamRepositoryImpl extends BaseRepositoryImpl<Integer, Team> {
+public class TeamRepositoryImpl extends BaseRepositoryImpl<Integer, Team>
+        implements TeamRepository {
 
     protected TeamRepositoryImpl(Connection connection) {
         super(connection);
