@@ -17,4 +17,8 @@ public class City extends BaseEntity<Integer> {
     String cityName;
 
 
+    public City(int id, String cityName) {
+        super(id);
+        this.cityName=cityName;
+    }
 }
