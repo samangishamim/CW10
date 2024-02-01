@@ -1,4 +1,7 @@
 package repository;
 
-public interface CityRepository {
+import base.repository.BaseRepository;
+import model.City;
+
+public interface CityRepository extends BaseRepository<Integer, City> {
 }
