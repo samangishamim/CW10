@@ -21,7 +21,7 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
         //todo : INSERT INTO tableName (fieldName) VALUES (QuestionMarks)
         String sql = "INSERT INTO " + getTableName() + getFieldName() + " VALUES " + getQuestionMarks();
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            setFields(ps);
+            setFields(ps , entity ,false);
             ps.executeUpdate();
         }
 
@@ -43,8 +43,14 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
     }
 
     @Override
-    public void update(T entity) {
+    public void update(T entity) throws SQLException {
+        // todo : UPDATE TableName SET fieldName=? , . . . WHERE id=?;
+        String sql="UPDATE "+ getTableName() +" SET " + getUpdateFields() + " WHERE id = " + entity.getId();
+        try(PreparedStatement ps = connection.prepareStatement(sql)) {
+            setFields(ps , entity , true);
 
+            ps.executeUpdate();
+        }
     }
 
     @Override
@@ -57,8 +63,9 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
     public abstract String getQuestionMarks();
 
     public abstract String getFieldName();
+    public abstract String getUpdateFields();
 
-    public abstract String setFields(PreparedStatement ps);
+    public abstract String setFields(PreparedStatement ps , T entity , boolean isCountOnly );
     public abstract T mapResultSetToEntity(ResultSet resultSet);
 
 }
