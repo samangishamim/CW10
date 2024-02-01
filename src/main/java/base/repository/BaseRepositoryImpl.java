@@ -5,6 +5,7 @@ import base.model.BaseEntity;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class BaseRepositoryImpl<ID extends Serializable, T extends BaseEntity<ID>>
@@ -27,7 +28,18 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
     }
 
     @Override
-    public T findById(ID id) {
+    public T findById(ID id) throws SQLException {
+        // todo : SELECT * FROM tableName where id=?;
+        String sql = "SELECT * FROM" + getTableName() + " WHERE id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, (Integer) id);
+
+            ResultSet resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+                return mapResultSetToEntity(resultSet);
+
+            }
+        }
         return null;
     }
 
@@ -48,5 +60,6 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, T extends Base
     public abstract String getFieldName();
 
     public abstract String setFields(PreparedStatement ps);
+    public abstract T mapResultSetToEntity(ResultSet resultSet);
 
 }
