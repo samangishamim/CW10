@@ -4,10 +4,8 @@ import base.repository.BaseRepositoryImpl;
 import model.Player;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class PlayerRepositoryImpl extends BaseRepositoryImpl <Integer , Player>
         implements PlayerRepository {
@@ -52,7 +50,7 @@ public class PlayerRepositoryImpl extends BaseRepositoryImpl <Integer , Player>
     }
 
     @Override
-    public Player[] listOfPlayer() throws SQLException {
+    public ArrayList<Player> listOfPlayer() throws SQLException {
         //todo SELECT  * FROM player ;
         String sql="SELECT * FROM player";
         try (PreparedStatement ps= connection.prepareStatement(sql,
@@ -60,15 +58,18 @@ public class PlayerRepositoryImpl extends BaseRepositoryImpl <Integer , Player>
             ResultSet resultSet = ps.executeQuery();
 
 
-            int counter=0;
-            while (resultSet.next()) counter++;
-            Player[] players =new Player[counter];
-            counter=0;
-            resultSet.beforeFirst();
+//            int counter=0;
+//            while (resultSet.next()) counter++;
+//            Player[] players =new Player[counter];
+//            counter=0;
+//            resultSet.beforeFirst();
+            ArrayList<Player> playerList=new ArrayList<>() ;
+
             while (resultSet.next()){
-                players [counter++] = mapResultSetToEntity(resultSet);
+//                players [counter++] = mapResultSetToEntity(resultSet);
+                playerList.add(mapResultSetToEntity(resultSet));
             }
-            return players;
+            return playerList;
         }
     }
 }
