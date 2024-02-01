@@ -50,4 +50,25 @@ public class PlayerRepositoryImpl extends BaseRepositoryImpl <Integer , Player>
         int team_id = resultSet.getInt(4);
         return new Player(id,playerName,salary,team_id);
     }
+
+    @Override
+    public Player[] listOfPlayer() throws SQLException {
+        //todo SELECT  * FROM player ;
+        String sql="SELECT * FROM player";
+        try (PreparedStatement ps= connection.prepareStatement(sql,
+                ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY)){
+            ResultSet resultSet = ps.executeQuery();
+
+
+            int counter=0;
+            while (resultSet.next()) counter++;
+            Player[] players =new Player[counter];
+            counter=0;
+            resultSet.beforeFirst();
+            while (resultSet.next()){
+                players [counter++] = mapResultSetToEntity(resultSet);
+            }
+            return players;
+        }
+    }
 }
