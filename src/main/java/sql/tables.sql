@@ -27,7 +27,7 @@ create  table if not exists stadium
 
 CREATE TABLE IF NOT EXISTS match(
     id SERIAL PRIMARY KEY ,
-    number_of_goles  int,
+    number_of_goals  int,
     score  int,
     team_id int references team(id),
     stadium_id int references stadium(id)
