@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS player
 (
     id SERIAL PRIMARY KEY ,
     player_name VARCHAR(50),
-    salary DECIMAL(10,2) ,
-    team_id int references team(id)
+    team_id int references team(id),
+    contract_id int references contract(id)
 );
 
 create  table if not exists stadium
@@ -31,4 +31,11 @@ CREATE TABLE IF NOT EXISTS match(
     score  int,
     team_id int references team(id),
     stadium_id int references stadium(id)
+);
+CREATE TABLE IF NOT EXISTS contract
+(
+    id SERIAL PRIMARY KEY ,
+    start DATE ,
+    finish DATE ,
+    salary DECIMAL (10,2)
 );
