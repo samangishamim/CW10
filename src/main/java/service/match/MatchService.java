@@ -1,4 +1,8 @@
 package service.match;
 
-public interface MatchService {
+import base.service.BaseService;
+import model.Match;
+import repository.match.MatchRepository;
+
+public interface MatchService extends BaseService<Integer, Match> {
 }
