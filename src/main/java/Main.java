@@ -86,7 +86,7 @@ public class Main {
 //        contractService.delete(6);
 
         // todo : test coach
-//        CoachService coachService = ApplicationContext.getCoachService();
+        CoachService coachService = ApplicationContext.getCoachService();
 //        coachService.save(new Coach("Nekonam" , 4 , 12));
 //        coachService.save(new Coach("mansorian" , 2 , 13));
 //        coachService.save(new Coach("golmohamadi" , 5 , 14));
@@ -95,5 +95,9 @@ public class Main {
 //        System.out.println(coachService.findById(4));
 //        coachService.update(new Coach(4,"bagheri" , 6 , 15 ));
 //        coachService.delete(4);
+
+        // todo : query 1 (max coach salary)
+
+        System.out.println(coachService.getCoachMaxSalary());
     }
 }

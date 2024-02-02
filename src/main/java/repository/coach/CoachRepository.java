@@ -3,6 +3,8 @@ package repository.coach;
 import base.repository.BaseRepository;
 import model.Coach;
 
+import java.sql.SQLException;
+
 public interface CoachRepository extends BaseRepository<Integer , Coach> {
-    public void getCoachMaxSalary ();
+    public String getCoachMaxSalary () throws SQLException;
 }

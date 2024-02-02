@@ -3,6 +3,7 @@ package repository.coach;
 import base.repository.BaseRepositoryImpl;
 import model.Coach;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,5 +49,24 @@ public class CoachRepositoryImpl extends BaseRepositoryImpl<Integer , Coach> imp
         int contractId = resultSet.getInt(4);
 
         return new Coach(id , coachName , teamId , contractId);
+    }
+
+    @Override
+    public String getCoachMaxSalary() throws SQLException {
+        String query = "SELECT A.coach_name , B.salary FROM coach A\n" +
+                "JOIN contract B\n" +
+                "ON A.contract_id = B.id\n" +
+                "WHERE B.salary = (SELECT max(salary) FROM coach A JOIN contract B\n" +
+                "                  ON A.contract_id = B.id);";
+        try (PreparedStatement ps = connection.prepareStatement(query) ){
+            ResultSet resultSet = ps.executeQuery();
+            if (resultSet.next()){
+                String name = resultSet.getString(1);
+                BigDecimal salary = resultSet.getBigDecimal(2);
+                String salaryStr = salary.toString();
+                return name + " " + salaryStr;
+            }
+        }
+        return null;
     }
 }
