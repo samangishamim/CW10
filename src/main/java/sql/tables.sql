@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS coach
     id SERIAL PRIMARY KEY ,
     coach_name VARCHAR(50) ,
     team_id int references team(id),
-    contract_id int references contract(id)
+    contract_id int UNIQUE references contract(id)
 );
 create  table if not exists stadium
 (

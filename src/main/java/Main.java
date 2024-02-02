@@ -1,8 +1,6 @@
-import model.City;
-import model.Contract;
-import model.Player;
-import model.Team;
+import model.*;
 import service.city.CityService;
+import service.coach.CoachService;
 import service.contract.ContractService;
 import service.player.PlayerService;
 import service.team.TeamService;
@@ -86,5 +84,16 @@ public class Main {
 //        contractService.update(new Contract(6,Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
 //                new BigDecimal("330000")));
 //        contractService.delete(6);
+
+        // todo : test coach
+//        CoachService coachService = ApplicationContext.getCoachService();
+//        coachService.save(new Coach("Nekonam" , 4 , 12));
+//        coachService.save(new Coach("mansorian" , 2 , 13));
+//        coachService.save(new Coach("golmohamadi" , 5 , 14));
+//        coachService.save(new Coach("karimi" , 6 , 15));
+
+//        System.out.println(coachService.findById(4));
+//        coachService.update(new Coach(4,"bagheri" , 6 , 15 ));
+//        coachService.delete(4);
     }
 }
