@@ -1,12 +1,15 @@
 import model.City;
+import model.Contract;
 import model.Player;
 import model.Team;
 import service.city.CityService;
+import service.contract.ContractService;
 import service.player.PlayerService;
 import service.team.TeamService;
 import utility.ApplicationContext;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -30,7 +33,7 @@ public class Main {
         // teamService.delete(3);
 
         // todo : test player
-        PlayerService playerService = ApplicationContext.getPlayerService();
+//        PlayerService playerService = ApplicationContext.getPlayerService();
 //        playerService.save(new Player("farhad" , new BigDecimal("250000"), 1));
 //        playerService.save(new Player("asghar" , new BigDecimal("500000"), 1));
 //        playerService.save(new Player("ali" , new BigDecimal("450000"), 1));
@@ -40,9 +43,41 @@ public class Main {
         //playerService.update(new Player(2 , "asghar" , new BigDecimal("300000") , 2));
         //playerService.delete(2);
 
-        ArrayList<Player> players = playerService.listOfPlayer();
-        for (Player player : players) {
-            System.out.println(player);
-        }
+//        ArrayList<Player> players = playerService.listOfPlayer();
+//        for (Player player : players) {
+//            System.out.println(player);
+//        }
+
+        // todo : test contract
+        ContractService contractService = ApplicationContext.getContractService();
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("7500000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("400000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("550000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("450000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("300000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("350000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("700000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("350000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("720000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("150000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("250000") ));
+//        contractService.save(new Contract(Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("400000") ));
+
+//        System.out.println(contractService.findById(1));
+//        contractService.update(new Contract(6,Date.valueOf("1401-01-01"),Date.valueOf("1402-01-01"),
+//                new BigDecimal("330000")));
+//        contractService.delete(6);
     }
 }

@@ -14,13 +14,13 @@ import java.math.BigDecimal;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Player extends BaseEntity<Integer> {
     String playerName ;
-    BigDecimal salary ;
     int teamId ;
+    int contract_id ;
 
-    public Player(int id , String playerName , BigDecimal salary , int teamId){
+    public Player(int id , String playerName , int teamId , int contract_id){
         super(id);
         this.playerName=playerName;
-        this.salary=salary;
         this.teamId=teamId;
+        this.contract_id=contract_id;
     }
 }

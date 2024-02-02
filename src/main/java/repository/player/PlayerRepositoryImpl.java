@@ -20,7 +20,7 @@ public class PlayerRepositoryImpl extends BaseRepositoryImpl<Integer, Player>
 
     @Override
     public String getFieldName() {
-        return "(player_name , salary , team_id)";
+        return "(player_name , team_id , contract_id)";
     }
 
     @Override
@@ -30,23 +30,23 @@ public class PlayerRepositoryImpl extends BaseRepositoryImpl<Integer, Player>
 
     @Override
     public String getUpdateFields() {
-        return "player_name = ? , salary = ? , team_id = ? ";
+        return "player_name = ? , team_id = ? , contract_id = ? ";
     }
 
     @Override
     public void setFields(PreparedStatement ps, Player entity, boolean isCountOnly) throws SQLException {
         ps.setString(1, entity.getPlayerName());
-        ps.setBigDecimal(2, entity.getSalary());
-        ps.setInt(3, entity.getTeamId());
+        ps.setInt(2, entity.getTeamId());
+        ps.setInt(3,entity.getContract_id());
     }
 
     @Override
     public Player mapResultSetToEntity(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt(1);
         String playerName = resultSet.getString(2);
-        BigDecimal salary = resultSet.getBigDecimal(3);
-        int team_id = resultSet.getInt(4);
-        return new Player(id, playerName, salary, team_id);
+        int team_id = resultSet.getInt(3);
+        int contractId = resultSet.getInt(4);
+        return new Player(id, playerName,team_id,contractId);
     }
 
     @Override
