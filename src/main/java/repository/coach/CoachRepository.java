@@ -1,4 +1,7 @@
 package repository.coach;
 
-public interface CoachRepository {
+import base.repository.BaseRepository;
+import model.Coach;
+
+public interface CoachRepository extends BaseRepository<Integer , Coach> {
 }
