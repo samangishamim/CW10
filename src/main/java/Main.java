@@ -86,7 +86,7 @@ public class Main {
 //        contractService.delete(6);
 
         // todo : test coach
-        CoachService coachService = ApplicationContext.getCoachService();
+//        CoachService coachService = ApplicationContext.getCoachService();
 //        coachService.save(new Coach("Nekonam" , 4 , 12));
 //        coachService.save(new Coach("mansorian" , 2 , 13));
 //        coachService.save(new Coach("golmohamadi" , 5 , 14));
@@ -98,6 +98,12 @@ public class Main {
 
         // todo : query 1 (max coach salary)
 
-        System.out.println(coachService.getCoachMaxSalary());
+//        System.out.println(coachService.getCoachMaxSalary());
+
+        // todo : query 2 (max player salary per season)
+//        ArrayList<String> seasonMaxPlayerSalary = playerService.getSeasonMaxPlayerSalary();
+//        for (String s : seasonMaxPlayerSalary) {
+//            System.out.println(s);
+//        }
     }
 }
