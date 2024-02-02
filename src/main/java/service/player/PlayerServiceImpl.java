@@ -17,4 +17,10 @@ public class PlayerServiceImpl extends BaseServiceImpl<Integer , Player , Player
     public ArrayList<Player> listOfPlayer() throws SQLException {
         return repository.listOfPlayer();
     }
+
+    @Override
+    public ArrayList<String> getSeasonMaxPlayerSalary() throws SQLException {
+        return repository.getSeasonMaxPlayerSalary();
+    }
+
 }
