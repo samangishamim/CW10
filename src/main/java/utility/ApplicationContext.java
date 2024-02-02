@@ -3,6 +3,8 @@ package utility;
 import connection.DBConfig;
 import repository.city.CityRepository;
 import repository.city.CityRepositoryImpl;
+import repository.match.MatchRepository;
+import repository.match.MatchRepositoryImpl;
 import repository.player.PlayerRepository;
 import repository.player.PlayerRepositoryImpl;
 import repository.stadium.StadiumRepository;
@@ -11,6 +13,8 @@ import repository.team.TeamRepository;
 import repository.team.TeamRepositoryImpl;
 import service.city.CityService;
 import service.city.CityServiceImpl;
+import service.match.MatchService;
+import service.match.MatchServiceImpl;
 import service.player.PlayerService;
 import service.player.PlayerServiceImpl;
 import service.stadium.StadiumService;
@@ -30,6 +34,8 @@ public class ApplicationContext {
     private static PlayerService PLAYER_SERVICE ;
     private static StadiumRepository STADIUM_REPOSITORY;
     private static StadiumService  STADIUM_SERVICE;
+    private static MatchRepository MATCH_REPOSITORY;
+    private static MatchService MATCH_SERVICE;
 
 
     public static void initialize(){
@@ -52,6 +58,10 @@ public class ApplicationContext {
             STADIUM_REPOSITORY = new StadiumRepositoryImpl(CONNECTION);
             STADIUM_SERVICE =new StadiumServiceImpl(STADIUM_REPOSITORY);
         }
+        if(MATCH_REPOSITORY==null){
+            MATCH_REPOSITORY=new MatchRepositoryImpl(CONNECTION);
+            MATCH_SERVICE=new MatchServiceImpl(MATCH_REPOSITORY);
+        }
     }
 
     public  static  CityService getCityService(){
@@ -65,5 +75,8 @@ public class ApplicationContext {
     }
     public static StadiumService getStadiumService(){
         return STADIUM_SERVICE;
+    }
+    public static MatchService getMatchService(){
+        return MATCH_SERVICE;
     }
 }
