@@ -8,4 +8,6 @@ import java.util.ArrayList;
 
 public interface PlayerService extends BaseService<Integer , Player> {
     public ArrayList<Player> listOfPlayer() throws SQLException;
+
+    public ArrayList<String> getSeasonMaxPlayerSalary() throws SQLException;
 }
