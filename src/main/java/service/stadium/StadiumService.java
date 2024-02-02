@@ -1,4 +1,7 @@
 package service.stadium;
 
-public interface StadiumService {
+import base.service.BaseService;
+import model.Stadium;
+
+public interface StadiumService extends BaseService<Integer, Stadium> {
 }
