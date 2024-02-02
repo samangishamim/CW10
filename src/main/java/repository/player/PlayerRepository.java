@@ -10,5 +10,5 @@ public interface PlayerRepository extends BaseRepository<Integer , Player> {
 
     public ArrayList<Player> listOfPlayer() throws SQLException;
 
-    public String getSeasonMaxPlayerSalary();
+    public ArrayList<String> getSeasonMaxPlayerSalary() throws SQLException;
 }
