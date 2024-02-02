@@ -25,3 +25,10 @@ create  table if not exists stadium
   city_id int references  city(id)
 );
 
+CREATE TABLE IF NOT EXISTS match(
+    id SERIAL PRIMARY KEY ,
+    number_of_goles  int,
+    score  int,
+    team_id int references team(id),
+    stadium_id int references stadium(id)
+);
