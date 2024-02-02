@@ -1,4 +1,7 @@
 package repository.contract;
 
-public interface ContractRepository {
+import base.repository.BaseRepository;
+import model.Contract;
+
+public interface ContractRepository extends BaseRepository<Integer , Contract> {
 }
