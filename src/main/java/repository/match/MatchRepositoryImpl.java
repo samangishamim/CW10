@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MatchRepositoryImpl extends BaseRepositoryImpl<Integer, Match> implements MatchRepository{
-    protected MatchRepositoryImpl(Connection connection) {
+    public MatchRepositoryImpl(Connection connection) {
         super(connection);
     }
 
