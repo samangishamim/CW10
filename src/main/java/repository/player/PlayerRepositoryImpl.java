@@ -64,4 +64,29 @@ public class PlayerRepositoryImpl extends BaseRepositoryImpl<Integer, Player>
             return playerList;
         }
     }
+
+    @Override
+    public ArrayList<String> getSeasonMaxPlayerSalary() throws SQLException {
+        String sql = "SELECT EXTRACT(YEAR FROM C.start) AS season , P.player_name , C.salary  FROM player P\n" +
+                "JOIN contract C\n" +
+                "ON P.contract_id = C.id\n" +
+                "WHERE C.salary IN (SELECT max(C.salary) FROM player P\n" +
+                "                   JOIN contract C\n" +
+                "                   ON P.contract_id = C.id\n" +
+                "                   GROUP BY EXTRACT(YEAR FROM C.start));";
+
+        ArrayList<String> listOfPlayer = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                String season = resultSet.getString(1);
+                String name = resultSet.getString(2);
+                BigDecimal salary = resultSet.getBigDecimal(3);
+
+
+                listOfPlayer.add(season + " " + name + " " + salary.toString());
+            }
+            return listOfPlayer;
+        }
+    }
 }
