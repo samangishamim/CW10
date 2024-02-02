@@ -78,7 +78,7 @@ public class ApplicationContext {
             CONTRACT_REPOSITORY = new ContractRepositoryImpl(CONNECTION);
             CONTRACT_SERVICE = new ContractServiceImpl(CONTRACT_REPOSITORY);
         }
-        if (CONTRACT_REPOSITORY == null) {
+        if (COACH_REPOSITORY == null) {
             COACH_REPOSITORY = new CoachRepositoryImpl(CONNECTION);
             COACH_SERVICE = new CoachServiceImpl(COACH_REPOSITORY);
         }
