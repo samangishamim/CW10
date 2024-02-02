@@ -35,10 +35,16 @@ public class Main {
         // teamService.delete(3);
 
         // todo : test player
-        PlayerService playerService = ApplicationContext.getPlayerService();
+//        PlayerService playerService = ApplicationContext.getPlayerService();
 //        playerService.save(new Player("farhad" , 2 , 1));
 //        playerService.save(new Player("asghar" , 4 , 2));
 //        playerService.save(new Player("ali" , 2 , 3));
+//        playerService.save(new Player("mohammad" , 4 , 4));
+//        playerService.save(new Player("mobin" , 4 , 5));
+//        playerService.save(new Player("omid" , 5 , 7));
+//        playerService.save(new Player("hossein" , 5 , 8));
+//        playerService.save(new Player("taghi" , 5 , 9));
+//        playerService.save(new Player("naghi" , 2 , 10));
 
         //System.out.println(playerService.findById(2));
 //        playerService.update(new Player(2 , "asghar" , 4 , 4));
